@@ -2271,7 +2271,7 @@ input[type=button]:disabled,
   width: 35%;
 }#header::after {
   content: "";
-  background-image: url(../../assets/images/wave.svg);
+  background-image: url(../images/wave.svg);
   position: absolute;
   opacity: 0.6;
   top: 0;
