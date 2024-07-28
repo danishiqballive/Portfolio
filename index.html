@@ -16,8 +16,8 @@
 	<link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#000000" />
 	<meta name="msapplication-TileColor" content="#000000" />
 	<meta name="theme-color" content="#ffffff" />
-  <script type="module" crossorigin src="assets/main-BG4ud6aM.js"></script>
-  <link rel="stylesheet" crossorigin href="assets/main-DRsa_h5a.css">
+	<script type="module" crossorigin src="assets/main-BG4ud6aM.js"></script>
+	<link rel="stylesheet" crossorigin href="assets/main-DRsa_h5a.css">
 </head>
 
 <body>
@@ -35,7 +35,8 @@
 
 	<!-- Main -->
 	<div id="main" data-aos="fade-in" data-aos-delay="300">
-		<a class="resume-btn header-action-btn" href="assets/docs/cv.pdf" style="color:#fff !important;" target="_blank">Download Resume</a>		<!-- One -->
+		<a class="resume-btn header-action-btn" href="assets/docs/cv.pdf" style="color:#fff !important;"
+			target="_blank">Download Resume</a> <!-- One -->
 		<section id="one" data-aos="fade-left">
 			<header class="major">
 				<h2>About Me</h2>
@@ -283,9 +284,14 @@
 					</div>
 					<div class="col-12">
 						<ul class="actions">
-							<li><input type="submit" value="Send Message" class="primary" /></li>
-							<!-- <li><input type="reset" value="Reset" /></li> -->
+							<li>
+								<button type="submit" class="primary button" id="submitButton">
+									<span class="btn_msg">Send Message</span>
+									<span class="contact_btn_loader" style="display:none;"></span>
+								</button>
+							</li>
 						</ul>
+						<p id="responseMessage"></p>
 					</div>
 				</div>
 			</form>
