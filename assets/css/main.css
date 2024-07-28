@@ -1577,7 +1577,7 @@ header.major {
 }
 header.major::after {
   content: "";
-  background-image: url(../../assets/images/needle-underline.svg);
+  background-image: url(../images/needle-underline.svg);
   left: 0;
   top: 70%;
   position: absolute;
@@ -2263,7 +2263,7 @@ input[type=button]:disabled,
 }
 #header::after {
   content: "";
-  background-image: url(../../assets/images/wave.svg);
+  background-image: url(../images/wave.svg);
   position: absolute;
   opacity: 0.6;
   top: 0;
