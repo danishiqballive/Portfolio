@@ -1577,7 +1577,7 @@ header.major {
 }
 header.major::after {
   content: "";
-  background-image: url(../images/needle-underline.svg);
+  background-image: url(../../assets/images/needle-underline.svg);
   left: 0;
   top: 70%;
   position: absolute;
@@ -2263,7 +2263,7 @@ input[type=button]:disabled,
 }
 #header::after {
   content: "";
-  background-image: url(../images/wave.svg);
+  background-image: url(../../assets/images/wave.svg);
   position: absolute;
   opacity: 0.6;
   top: 0;
@@ -2860,4 +2860,30 @@ body.is-touch .poptrox-popup .closer {
 #main .header-action-btn:hover,
 #main .header-action-btn:focus {
   background-color: #9aa2f8;
+}
+
+#contactForm .contact_btn_loader {
+  border: 3px solid #f3f3f3;
+  /* Light grey */
+  border-top: 3px solid #fff;
+  /* White */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-left: 10px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#contactForm #submitButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=main.css.map */

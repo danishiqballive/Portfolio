@@ -111,30 +111,39 @@
 
 	});
 
-	$('#contactForm').on('submit', function(event) {
-		event.preventDefault(); // Prevent default form submission
-	
-		// Prepare data to send
-		var formData = {
-			Name: $('#name').val(),
-			Email: $('#email').val(),
-			Message: $('#message').val()
-		};
-	
-		// Send data to Google Apps Script
+	const form = $('#contactForm');
+	const scriptURL = 'https://script.google.com/macros/s/AKfycbwrideRWt08E8qFSpS3KoKXnerkJpWDYgU1NFxC7b6Pd9jXWxXdA-5Fmx8BwBKwuPz1uQ/exec';
+
+	form.on('submit', function (e) {
+		e.preventDefault();
+
+		var formData = new FormData(this);
+		$(form).find('#responseMessage').empty();
+
+		// Disable button and show loader
+		// $(form).find('button').prop('disabled', true); // Use the correct selector for your button
+		$(form).find('button .btn_msg').hide(); // Clear button text
+		$(form).find('.contact_btn_loader').show();
+
 		$.ajax({
-			url: 'https://script.google.com/macros/s/AKfycbxGV_3AcUK9inMxjedLqJ5ODnDV_j1TlpqmPdu6PHdQGV0bKV5P2CUVy5qGCqKzLTlslg/exec',
-			method: 'POST', // Use POST instead of GET
-			crossDomain: true,
-			contentType: 'application/json',
-			data: JSON.stringify(formData),
-			success: function(response) {
-				alert('Form submitted successfully');
-				$('#contactForm').trigger('reset'); // Reset form after submission
+			url: scriptURL,
+			method: 'POST',
+			data: formData,
+			processData: false,
+			contentType: false,
+			success: function (response) {
+				$(form).find('#responseMessage').html('<span class="text-success">Thank you! Your form has been submitted successfully.</span>');
+				form.trigger('reset'); // Optionally reset the form
 			},
-			error: function(xhr, status, error) {
-				console.error('Error:', error);
-				alert('Error submitting form');
+			error: function (xhr, status, error) {
+				console.error('Error!', error);
+				$(form).find('#responseMessage').html('<span class="text-danger">Error: ' + error + '</span>'); // Display error message
+			},
+			complete: function () {
+				// Enable button and hide loader
+				// $(form).find('button').prop('disabled', false); // Re-enable button
+				$(form).find('button .btn_msg').show(); // Reset button text
+				$(form).find('.contact_btn_loader').hide(); // Hide loader
 			}
 		});
 	});
